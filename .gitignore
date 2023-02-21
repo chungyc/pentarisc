@@ -1,0 +1,5 @@
+.stack-work/
+.vscode/
+.hspec-failures
+stack.yaml.lock
+*~

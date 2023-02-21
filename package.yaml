@@ -1,0 +1,68 @@
+# Copyright 2023 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name:                pentarisc
+version:             0.0.0.0
+github:              "chungyc/pentarisc"
+license:             Apache-2.0
+author:              "Yoo Chung"
+maintainer:          "chungyc@google.com"
+copyright:           "Copyright (C) 2023 Google LLC"
+
+extra-source-files:
+- README.md
+- LICENSE
+- docs/**
+
+synopsis:            Emulator for the RISC-V processor.
+category:            Compilers/Interpreters
+
+description:         Emulator for the RISC-V processor.
+                     Source is available at [GitHub](https://github.com/chungyc/pentarisc).
+
+language: GHC2021
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+- -Werror
+
+library:
+  source-dirs: src
+
+executables:
+  pentarisc-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - pentarisc
+
+tests:
+  pentarisc-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - pentarisc
+    - hspec
+    - QuickCheck
