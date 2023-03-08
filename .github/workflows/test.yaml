@@ -4,6 +4,12 @@ concurrency: build
 on:
   workflow_dispatch:
   push:
+    paths:
+      - '**.yaml'
+      - 'app/**'
+      - 'site/**'
+      - 'src/**'
+      - 'test/**'
 
 permissions: read-all
 
