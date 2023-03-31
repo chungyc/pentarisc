@@ -1,5 +1,7 @@
 # Pentarisc
 
+**This is a work in progress.**
+
 This will be a RISC-V emulator and miscellaneous tools implemented in Haskell.
 
 The components specifically planned are:
@@ -12,6 +14,9 @@ This has no aspirations to be a useful industrial tool;
 it is purely for personal fun and no profit.
 
 ## Contributing
+
+This is a work in progress.
+It still needs a minimum amount of scaffolding before it is even ready to accept contributions.
 
 See [`CONTRIBUTING.md`](docs/CONTRIBUTING.md) for details.
 

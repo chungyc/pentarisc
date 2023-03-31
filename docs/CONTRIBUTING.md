@@ -1,6 +1,8 @@
 # How to Contribute
 
-We'd love to accept your patches and contributions to this project.
+**This is a work in progress.  Contributions are not accepted yet.**
+
+Some day, we'd love to accept your patches and contributions to this project.
 
 ## Before you begin
 
