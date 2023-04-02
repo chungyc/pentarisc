@@ -5,7 +5,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '**.yaml'
+      - 'package.yaml'
+      - 'stack.yaml'
       - 'app/**'
       - 'site/**'
       - 'src/**'
@@ -27,14 +28,14 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.stack
-          key: stack-${{ hashFiles('package.yaml', 'stack.yaml') }}
+          key: stack-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('package.yaml', 'stack.yaml') }}
           restore-keys: stack-
 
       - id: cache-build-objects
         uses: actions/cache@v3
         with:
           path: .stack-work
-          key: build-${{ hashFiles('app/**', 'src/**', 'test/**') }}
+          key: build-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('app/**', 'src/**', 'test/**') }}
           restore-keys: build-
 
       - run: stack build --test
