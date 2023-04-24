@@ -2,18 +2,17 @@ name: HLint
 
 on:
   push:
-    paths:
-      - '**.hs'
+  pull_request:
+  schedule:
+    - cron: '9 4 * * 4'
 
 permissions: read-all
 
 jobs:
   hlint:
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
-      - uses: haskell/actions/hlint-setup@5ff2575cfa27ef8693b7252e0ed1cb0ad87af57e # v2.3.7
-      - uses: haskell/actions/hlint-run@5ff2575cfa27ef8693b7252e0ed1cb0ad87af57e # v2.3.7
-        with:
-          path: '["app/", "src/", "test/"]'
-          fail-on: warning
+      - uses: haskell-actions/hlint-scan@a99e50c562954d0c73211df1d7dabd33128b1098 # v1.0.0
