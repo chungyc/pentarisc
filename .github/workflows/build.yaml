@@ -2,15 +2,10 @@ name: Build
 concurrency: build
 
 on:
-  workflow_dispatch:
   push:
-    paths:
-      - 'package.yaml'
-      - 'stack.yaml'
-      - 'app/**'
-      - 'site/**'
-      - 'src/**'
-      - 'test/**'
+  pull_request:
+    branches:
+      - 'main'
 
 permissions: read-all
 
