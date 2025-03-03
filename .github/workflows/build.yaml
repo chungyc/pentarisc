@@ -20,14 +20,14 @@ jobs:
         with:
           enable-stack: true
       
-      - uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4.2.1
+      - uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
         with:
           path: ~/.stack
           key: stack-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('package.yaml', 'stack.yaml') }}
           restore-keys: stack-
 
       - id: cache-build-objects
-        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4.2.1
+        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
         with:
           path: .stack-work
           key: build-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('app/**', 'src/**', 'test/**') }}
